@@ -15,9 +15,7 @@ model Restaurant {
   deliveryFee         Decimal    @db.Decimal(10, 2)
   deliveryTimeMinutes Int
   categories          Category[]
-  Products            Product[]
-
-  @@map("restaurant")
+  products            Product[]
 }
 
 model Category {
@@ -25,15 +23,13 @@ model Category {
   name        String
   imageUrl    String
   restaurants Restaurant[]
-  Product     Product[]
-
-  @@map("category")
+  products    Product[]
 }
 
 model Product {
   id                 String     @id @default(uuid())
   name               String
-  Descripton         String
+  description        String
   imageUrl           String
   price              Decimal    @db.Decimal(10, 2)
   discountPercentage Int        @default(0)
@@ -41,6 +37,4 @@ model Product {
   restaurant         Restaurant @relation(fields: [restaurantId], references: [id])
   categoryId         String
   category           Category   @relation(fields: [categoryId], references: [id])
-
-  @@map("products")
 }
