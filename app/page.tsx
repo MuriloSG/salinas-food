@@ -52,6 +52,7 @@ export default async function Home() {
               variant="ghost"
               className="h-fit p-0 text-primary hover:bg-transparent"
             >
+              <Link href="/products/recomended"></Link>
               Ver todos
               <ChevronRightIcon size={16} />
             </Button>
